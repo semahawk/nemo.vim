@@ -1,7 +1,7 @@
 " Vim syntax file
+"
 " Language: Nemo
 " Maintainer: Szymon Urbaś <szymon.urbas@aol.com>
-" Latest Revision: 18 Jan 2013
 
 if exists("b:current_syntax")
   finish
@@ -13,6 +13,10 @@ syn keyword nemoTodo TODO FIX FIXME XXX NOTE
 " null
 syn keyword nemoNull null
 
+" Operators
+syn match nemoOperator '[+-=\*/%\[\]!<>]'
+syn match nemoPunctuation "[,\.;()\{\}]"
+
 " Keywords
 syn keyword nemoKeyword if unless while until else for return use
 syn keyword nemoKeyword const goto include my
@@ -21,7 +25,7 @@ syn keyword nemoKeyword const goto include my
 syn match nemoLabel '^\s*[a-zA-Z][a-zA-Z0-9]\+\s*:\s*'
 
 " Functions
-syn keyword nemoPredef assert strlen print printf id len
+syn keyword nemoPredef assert strlen print printf id len nextgroup=nemoFunOpt skipwhite
 syn match nemoUserdef "\<\h\w*\>\(\s\|\n\)*("me=e-1
 
 " Integers, floats and strings
@@ -43,10 +47,6 @@ syn region nemoFunDef end=/{\|;/ matchgroup=nemoKeyword start=/\<fun\>/ contains
 " Comments
 syn region nemoComment start="/\*" end="\*/" contains=nemoTodo
 syn match  nemoComment "#.*$" contains=nemoTodo
-
-" Operators
-syn match nemoOperator '[+-=\*/%\[\]!<>]'
-syn match nemoPunctuation "[,\.;()\{\}]"
 
 " Linking
 hi def link nemoOperator           Keyword
