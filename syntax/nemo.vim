@@ -19,7 +19,7 @@ syn match nemoPunctuation "[,\.;()\{\}]"
 
 " Keywords
 syn keyword nemoKeyword if unless while until else for return use
-syn keyword nemoKeyword const goto include my
+syn keyword nemoKeyword const goto my
 
 " Labels
 syn match nemoLabel '^\s*[a-zA-Z][a-zA-Z0-9]\+\s*:\s*'
